@@ -7,6 +7,27 @@
 
 ## Орчин
 
+`java -version` командын бүтэн гаралт:
+
+```text
+openjdk version "17.0.16" 2025-07-15
+OpenJDK Runtime Environment Temurin-17.0.16+8 (build 17.0.16+8)
+OpenJDK 64-Bit Server VM Temurin-17.0.16+8 (build 17.0.16+8, mixed mode, sharing)
+```
+
+`mvn -version` командын бүтэн гаралт:
+
+```text
+Apache Maven 3.10.1
+Maven home: C:\Program Files\Apache\Maven\apache-maven-3.10.1
+Java version: 17.0.16, vendor: Eclipse Adoptium, runtime: C:\Program Files\Eclipse Adoptium\jdk-17.0.16.8-hotspot
+Default locale: en_US, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+```
+
+JUnit Jupiter: 5.10.2  
+Surefire: 3.2.5
+
 ```text
 Java: 17.0.16
 Maven: 3.10.1
@@ -36,11 +57,13 @@ mvn test 2>&1 | tee results/mvn-test.txt
 mvn test 2>&1 | tee results/mvn-test-mutant.txt
 ```
 
-90 оноо A байх ёстой гэсэн тест уг мутацийг илрүүлж, тестийн алдаа болон `BUILD FAILURE` гарсан. Дараа нь нөхцөлийг `score >= 90` болгон сэргээж, үндсэн `mvn test`-ийг дахин амжилттай ажиллуулна.
+90 оноо A байх ёстой гэсэн тест уг мутацийг илрүүлж, тестийн алдаа болон `BUILD FAILURE` гарсан. Мутацид унасан тестүүд нь `ninetyIsExactlyA` болон `letterGradeBoundaries` юм. Хоёуланд нь гарсан мессеж `expected: <A> but was: <B>` байсан. `letterGradeBoundaries`-ийн уналт нь параметрчилсэн тестийн `[2]` мөрөнд бүртгэгдсэн. Энэ нь `90` онооны заагийг `>` болгож өөрчилбөл яг `90` нь A биш B болж буруу ангилагддагийг харуулсан. Нөхцөлийг `score >= 90` болгон сэргээсний дараах үндсэн үр дүн `Tests run: 23, Failures: 0, Errors: 0, Skipped: 0`, `BUILD SUCCESS` байв. Иймээс энэ заагийн тест нь жижиг нөхцөлийн өөрчлөлт бодит зан төлөвийг хэрхэн эвддэгийг хамгийн тодорхой харуулсан.
 
 ## AI-ийн тусламжийн дүгнэлт
 
 AI нь ердийн дүнгийн ангилал, бүх заагийн утга, сөрөг болон дээд хязгаараас давсан оролт, нийт онооны хязгаарыг санал болгосон. Анхны саналд зарим заагийн утга болон `totalScore`-ийн тусдаа буруу оролтын шалгалт дутуу байсан. Тиймээс 90, 89.99, 60, 59.99, 0, 100 утгуудыг нэмж, `att = -5`, `lab = 41`, `exam = 31` тохиолдлуудад `assertThrows` ашигласан. Parameterized тестийн мөр бүр тусдаа тест болж ажилладгийг мөн тооцсон. Эцсийн тестийн тоог Maven-ийн бодит тайлангаас шалгана.
+
+Эцсийн Maven тайланд 23 тест ажиллаж, алдаа болон failure бүртгэгдээгүй.
 
 ## Лиценз
 
