@@ -29,10 +29,6 @@ JUnit Jupiter: 5.10.2
 Surefire: 3.2.5
 
 ```text
-Java: 17.0.16
-Maven: 3.10.1
-JUnit Jupiter: 5.10.2
-Surefire: 3.2.5
 ```
 
 Төслийн код нь `GradeCalculator` классын үсгэн дүн болон 100 онооны жингийн нийлбэрийг тооцно. `letterGrade` нь 90+ → A, 80–89 → B, 70–79 → C, 60–69 → D, 0–59 → F дүрмийг хэрэглэнэ. Бүх оролтыг өөрийн зөвшөөрөгдсөн хязгаарт шалгаж, буруу утгад `IllegalArgumentException` шиднэ.
